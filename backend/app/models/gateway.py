@@ -8,3 +8,4 @@ class Gateway(db.Model):
     host = db.Column(db.String(255))
     port = db.Column(db.Integer)
     status = db.Column(db.String(32), default='offline')
+    nodes = db.relationship('Node', backref='gateway', lazy=True)
