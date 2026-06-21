@@ -8,3 +8,4 @@ class Node(db.Model):
     last_seen = db.Column(db.DateTime)
     battery = db.Column(db.Float)
     gateway_id = db.Column(db.Integer, db.ForeignKey('gateway.id'))
+    telemetry = db.relationship('Telemetry', backref='node', lazy=True)
