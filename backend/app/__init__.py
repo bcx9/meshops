@@ -1,6 +1,7 @@
 from flask import Flask
 from .config import Config
 from .database import db
+from .api.health import health_bp
 
 
 def create_app():
@@ -9,8 +10,6 @@ def create_app():
 
     db.init_app(app)
 
-    @app.get('/api/health')
-    def health():
-        return {'status': 'ok'}
+    app.register_blueprint(health_bp, url_prefix='/api')
 
     return app
