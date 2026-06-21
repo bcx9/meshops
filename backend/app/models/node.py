@@ -7,3 +7,4 @@ class Node(db.Model):
     name = db.Column(db.String(128))
     last_seen = db.Column(db.DateTime)
     battery = db.Column(db.Float)
+    gateway_id = db.Column(db.Integer, db.ForeignKey('gateway.id'))
